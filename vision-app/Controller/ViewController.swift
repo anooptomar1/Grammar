@@ -14,7 +14,7 @@ import DocumentsOCR
 import TesseractOCR
 
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate, UIPickerViewDataSource, UIPickerViewDelegate, G8TesseractDelegate {
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate, G8TesseractDelegate {
     
     
     @IBOutlet weak var vwCameraContainer: UIView!
@@ -25,12 +25,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var vwDetection: UIView!
     
     @IBOutlet weak var txfDetection: UITextView!
-    @IBOutlet weak var lblTitle: UILabel!
+
     
-    @IBOutlet weak var cvFontFamilies: UICollectionView!
-    
+    @IBOutlet var visuals: UIVisualEffectView!
     @IBOutlet weak var btnPlay: UIButton!
-    @IBOutlet weak var pckRecognition: UIPickerView!
+    //@IBOutlet weak var pckRecognition: UIPickerView!
     
     internal var fontFamilies: [String] = {
         var arr: [String] = []
@@ -47,9 +46,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     internal var currentFont: UIFont? {
         didSet {
             self.txfDetection.font = self.currentFont
-            self.lblTitle.font = self.currentFont
+           // self.lblTitle.font = self.currentFont
         }
     }
+    
+    //uiPickerView Language
+    
+
+    
+    
     internal var currentIndexPath: IndexPath?
     internal var currentImage: UIImage?
     internal var currentSentenceFrames: [CGRect] = []
@@ -59,7 +64,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     internal var session = AVCaptureSession()
     internal var requests = [VNRequest]()
     lazy internal var tesseract: G8Tesseract = {
-        let _tesseract = G8Tesseract(language: "eng")
+        let _tesseract = G8Tesseract(language: selectedLanguage)
         _tesseract?.delegate = self
         //_tesseract?.charWhitelist
         //_tesseract?.charBlacklist
@@ -68,7 +73,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     internal var currentDetectedText: String? {
         didSet {
-            self.lblTitle.isHidden = true
+            //self.lblTitle.isHidden = true
             self.txfDetection.text = self.currentDetectedText
         }
     }
@@ -82,31 +87,50 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return ["gray", "b/w"] //, "original"]
         }
     }
-    
+    var test = 1
+    let languageArray = ["English", "German", "French", "Danish"]
+    var selectedLanguage = "eng"
+    //internal var recognitionState = RecognitionTypes.init(rawValue: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+        print(test)
         
-//        cvFontFamilies.dataSource = self
-//        cvFontFamilies.delegate = self
+        let buttonItem = UIBarButtonItem(title: "Language", style: .plain, target: self, action: #selector(laguageTouched))
+        navigationItem.leftBarButtonItem = buttonItem
         
-        lblTitle.adjustsFontSizeToFitWidth = true
+        if selectedLanguage == "English"{
+            selectedLanguage = "eng"
+        }else if selectedLanguage == "French"{
+            selectedLanguage = "fra"
+        }
+        else if selectedLanguage == "German"{
+            selectedLanguage = "deu"
+        }
+        else if selectedLanguage == "Danish"{
+            selectedLanguage = "dan"
+        }
+        print(selectedLanguage)
         
-       // vwCameraContainer.layer.borderColor = UIColor.clear as? CGColor
-        //vwCameraContainer.layer.borderWidth = 4
-        vwCameraContainer.backgroundColor = UIColor.clear
+        print("tess language is \(tesseract.language)")
+        
+        txfDetection.text = "hello"
+
         vwVisibleArea.backgroundColor = UIColor.clear
-        vwSnapshot.backgroundColor = UIColor.blue
-        vwCamera.backgroundColor = UIColor.blue
-        //vwDetection.backgroundColor = UIColor.green
-        
-//        pckRecognition.dataSource = self
-//        pckRecognition.delegate = self
-        
+        vwSnapshot.backgroundColor = UIColor.clear
+        vwCamera.backgroundColor = UIColor.clear
+
         prepareLiveVideo()
         play()
         startTextDetection()
     }
     
+    
+    @objc private func laguageTouched(){
+        print("hello")
+        le vc = self.storyboard
+        self.pause()
+    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         self.previewLayer?.frame = self.vwCamera.bounds //on load, fix bounds
@@ -131,23 +155,35 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.btnPlay.isSelected = false
     }
     
+    @IBAction func onLanguage(_ sender: Any) {
+        if (sender as AnyObject).isSelected{
+        self.pause()
+        print("language")
+        }
+        print("language2")
+    }
+    
+    @IBAction func onEdit(_ sender: Any) {
+        pause()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     //MARK: UIPicker
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "1"
-    }
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return "1"
+//    }
     
 }
 

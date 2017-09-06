@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Vision
 import AVKit
 import TesseractOCR
@@ -84,8 +85,7 @@ extension ViewController {
         default:
             return 6
         }
-    }
-    
+    }    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { (context) in
             DispatchQueue.main.async {
@@ -95,14 +95,11 @@ extension ViewController {
         }) { (context) in
             //end rotation
         }
-        
         super.viewWillTransition(to: size, with: coordinator)
     }
-    
     override var shouldAutorotate: Bool {
         return false
     }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -113,15 +110,11 @@ extension ViewController {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
-        
         var requestOptions:[VNImageOption : Any] = [:]
-        
         if let camData = CMGetAttachment(sampleBuffer, kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, nil) {
             requestOptions = [.cameraIntrinsics:camData]
         }
-        
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: 6)!, options: requestOptions)
-        
         if self.shouldAnalyzeImage == true {
             do {
                 let clImage = CIImage.init(cvImageBuffer: pixelBuffer)
@@ -135,24 +128,21 @@ extension ViewController {
             }
         }
     }
-    
+    //starting detection is view didload
     func startTextDetection() {
         let textRequest = VNDetectTextRectanglesRequest(completionHandler: self.detectTextHandler)
         textRequest.reportCharacterBoxes = true
         self.requests = [textRequest]
     }
-    
     func detectTextHandler(request: VNRequest, error: Error?) {
         guard let observations = request.results as? [VNTextObservation] else {
             print("no result or wrong cast")
             return
         }
-        
         guard let mainImage = self.currentImage else {
             print("no current image")
             return
         }
-        
         DispatchQueue.main.async() {
             self.shouldAnalyzeImage = false
             self.vwCamera.layer.sublayers?.removeSubrange(1...)
@@ -176,13 +166,13 @@ extension ViewController {
             let imgv = UIImageView(image: mainImage)
             let vcontainer = UIView(frame: imgv.bounds)
             vcontainer.addSubview(imgv)
-
-            let recognition = RecognitionTypes(rawValue: Int(self.pckRecognition.selectedRow(inComponent: 0)))
-
+            
+            
+            let recognition = RecognitionTypes(rawValue: 0)
             var detectedTexts: [String] = []
             for frame in self.currentSentenceFrames {
                 var img = vcontainer.layer.asImage(rect: frame)
-
+                //image is transformed for tesseract to be detected easier
                 if let rec = recognition {
                     switch rec {
                     case .grayscale:
@@ -192,28 +182,25 @@ extension ViewController {
                     }
                 }
                 print(img)
-
+                //tesseract workd and tries to convert to string
                 self.tesseract.image = img
                 self.tesseract.recognize()
-                
+                print(self.tesseract.recognizedText)
                 if let s = self.tesseract.recognizedText {
                     detectedTexts.append(s)
                 }
             }
-            
             if detectedTexts.count > 0 {
                 self.currentDetectedText = detectedTexts.joined(separator: "")
             }
-            
             self.shouldAnalyzeImage = true
         }
     }
-    
+    // boxes
     func highlightWord(box: VNTextObservation) {
         guard let _ = box.characterBoxes else {
             return
         }
-        
         let dim = box.boundingBox
         
         let size = self.vwCamera.frame
@@ -236,7 +223,7 @@ extension ViewController {
             self.currentSentenceFrames.append(layerFrame)
         }
     }
-    
+    //boxes
     func highlightLetters(box: VNRectangleObservation) {
         let dim = box.boundingBox
         
@@ -268,4 +255,8 @@ extension ViewController {
     func shouldCancelImageRecognition(for tesseract: G8Tesseract!) -> Bool {
         return false
     }
+}
+extension ViewController{
+    
+
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
+
 extension CALayer {
     func asImage(rect: CGRect) -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: rect)
@@ -35,3 +36,5 @@ extension CGImage {
         return image
     }
 }
+
+
