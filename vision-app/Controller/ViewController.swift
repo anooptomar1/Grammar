@@ -95,9 +95,13 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         super.viewDidLoad()
      
         print(test)
+        //import language item
+        let languageItem = UIBarButtonItem(title: "Language", style: .plain, target: self, action: #selector(laguageTouched))
+        navigationItem.leftBarButtonItem = languageItem
+        //import editItem
+        let editItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTouched))
+       navigationItem.rightBarButtonItem = editItem
         
-        let buttonItem = UIBarButtonItem(title: "Language", style: .plain, target: self, action: #selector(laguageTouched))
-        navigationItem.leftBarButtonItem = buttonItem
         
         if selectedLanguage == "English"{
             selectedLanguage = "eng"
@@ -127,9 +131,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     
     @objc private func laguageTouched(){
-        print("hello")
-        le vc = self.storyboard
-        self.pause()
+        print("language")
+       // self.pause()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "languageVC")
+        self.present(vc!, animated: true, completion: self.pause)
+    }
+    @objc private func editTouched(){
+        print("edit")
+        // self.pause()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "editVC")
+        self.present(vc!, animated: true, completion: self.pause)
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93402FA91F5FB5E1008B6057 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93402FA81F5FB5E1008B6057 /* Language.swift */; };
 		93402FAB1F6026F0008B6057 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93402FAA1F6026F0008B6057 /* LanguageViewController.swift */; };
 		9375B2751F5EB7100099441D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375B2741F5EB7100099441D /* CameraViewController.swift */; };
 		9375B2771F5EB72F0099441D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375B2761F5EB72F0099441D /* Image.swift */; };
-		9381B2661F5E74E200BFE8F8 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381B2651F5E74E200BFE8F8 /* CollectionViewController.swift */; };
+		93A395551F60554900B31191 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A395541F60554900B31191 /* EditViewController.swift */; };
 		93E1F4931F4183F0003FF77C /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1F4921F4183F0003FF77C /* RoundedShadowView.swift */; };
 		93E1F4951F4185D9003FF77C /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1F4941F4185D9003FF77C /* RoundedShadowButton.swift */; };
 		93E1F4971F418621003FF77C /* RoundedShadowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1F4961F418621003FF77C /* RoundedShadowImageView.swift */; };
@@ -27,11 +26,10 @@
 
 /* Begin PBXFileReference section */
 		26375926C882796FC9269340 /* Pods_vision_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vision_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93402FA81F5FB5E1008B6057 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		93402FAA1F6026F0008B6057 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		9375B2741F5EB7100099441D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9375B2761F5EB72F0099441D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		9381B2651F5E74E200BFE8F8 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		93A395541F60554900B31191 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		93E1F4921F4183F0003FF77C /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		93E1F4941F4185D9003FF77C /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
 		93E1F4961F418621003FF77C /* RoundedShadowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowImageView.swift; sourceTree = "<group>"; };
@@ -115,10 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				93E70A671F417EF600A08D57 /* ViewController.swift */,
+				93A395541F60554900B31191 /* EditViewController.swift */,
 				93402FAA1F6026F0008B6057 /* LanguageViewController.swift */,
-				93402FA81F5FB5E1008B6057 /* Language.swift */,
 				9375B2741F5EB7100099441D /* CameraViewController.swift */,
-				9381B2651F5E74E200BFE8F8 /* CollectionViewController.swift */,
 				9375B2761F5EB72F0099441D /* Image.swift */,
 			);
 			path = Controller;
@@ -278,13 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E70A681F417EF600A08D57 /* ViewController.swift in Sources */,
-				93402FA91F5FB5E1008B6057 /* Language.swift in Sources */,
 				9375B2771F5EB72F0099441D /* Image.swift in Sources */,
 				93E1F4991F419123003FF77C /* SqueezeNet.mlmodel in Sources */,
-				9381B2661F5E74E200BFE8F8 /* CollectionViewController.swift in Sources */,
 				93E70A661F417EF600A08D57 /* AppDelegate.swift in Sources */,
 				93E1F4931F4183F0003FF77C /* RoundedShadowView.swift in Sources */,
 				9375B2751F5EB7100099441D /* CameraViewController.swift in Sources */,
+				93A395551F60554900B31191 /* EditViewController.swift in Sources */,
 				93402FAB1F6026F0008B6057 /* LanguageViewController.swift in Sources */,
 				93E1F4951F4185D9003FF77C /* RoundedShadowButton.swift in Sources */,
 				93E1F4971F418621003FF77C /* RoundedShadowImageView.swift in Sources */,

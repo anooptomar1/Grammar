@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Scanner-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,16 +147,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xq4-eM-Tlz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dkg-6p-L0I">
+                    <navigationItem key="navigationItem" title="Scanner" id="dkg-6p-L0I">
                         <barButtonItem key="leftBarButtonItem" title="Language" springLoaded="YES" style="plain" id="DkN-np-muP">
                             <connections>
-                                <action selector="onLanguage:" destination="BYZ-38-t0r" id="iUJ-ap-HsM"/>
-                                <segue destination="ngE-F9-hA1" kind="show" id="JAG-hV-ENx"/>
+                                <segue destination="ngE-F9-hA1" kind="show" identifier="firstLanguageSegue" id="JAG-hV-ENx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="lT4-5n-fv7">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" springLoaded="YES" style="plain" id="lT4-5n-fv7">
                             <connections>
-                                <action selector="onEdit:" destination="BYZ-38-t0r" id="KQP-Rj-c2B"/>
+                                <segue destination="wIU-KT-1Gr" kind="show" identifier="editSegue" id="qYc-vH-Pbf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -178,15 +177,15 @@
         <!--Language-->
         <scene sceneID="2wt-Xo-s1a">
             <objects>
-                <viewController id="ngE-F9-hA1" customClass="LanguageViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="languageVC" id="ngE-F9-hA1" customClass="LanguageViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="t5N-8d-Hm6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOM-Ay-qQS">
-                                <rect key="frame" x="0.0" y="252" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="89" width="375" height="489"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="76w-ts-KCL"/>
+                                    <constraint firstAttribute="height" constant="489" id="76w-ts-KCL"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="ngE-F9-hA1" id="FdT-1d-RU3"/>
@@ -196,7 +195,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rmk-Kg-dLC" firstAttribute="bottom" secondItem="pOM-Ay-qQS" secondAttribute="bottom" constant="253" id="8wK-vm-eZJ"/>
+                            <constraint firstItem="Rmk-Kg-dLC" firstAttribute="bottom" secondItem="pOM-Ay-qQS" secondAttribute="bottom" constant="89" id="8wK-vm-eZJ"/>
                             <constraint firstItem="pOM-Ay-qQS" firstAttribute="leading" secondItem="Rmk-Kg-dLC" secondAttribute="leading" id="EJm-EB-bmi"/>
                             <constraint firstItem="pOM-Ay-qQS" firstAttribute="trailing" secondItem="Rmk-Kg-dLC" secondAttribute="trailing" id="VcB-He-sa5"/>
                         </constraints>
@@ -215,12 +214,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yu-fs-qDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="983"/>
+            <point key="canvasLocation" x="989.60000000000002" y="982.75862068965523"/>
         </scene>
-        <!--Editor-->
+        <!--Edit-->
         <scene sceneID="JM3-Rj-Dr4">
             <objects>
-                <viewController title="Editor" id="wIU-KT-1Gr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editVC" title="Edit" id="wIU-KT-1Gr" customClass="EditViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="EKC-iW-DvS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,8 +239,8 @@
                                     <tabBarItem systemItem="more" id="5K7-0u-ECm"/>
                                 </items>
                             </tabBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inF-1T-Fed">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inF-1T-Fed">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -251,6 +250,7 @@
                         <constraints>
                             <constraint firstItem="inF-1T-Fed" firstAttribute="top" secondItem="08z-6Z-DEZ" secondAttribute="top" id="1Df-v7-2QQ"/>
                             <constraint firstItem="inF-1T-Fed" firstAttribute="trailing" secondItem="08z-6Z-DEZ" secondAttribute="trailing" id="3ta-gf-fOm"/>
+                            <constraint firstItem="inF-1T-Fed" firstAttribute="bottom" secondItem="KvU-wJ-GRM" secondAttribute="top" id="Srz-0K-puy"/>
                             <constraint firstItem="inF-1T-Fed" firstAttribute="leading" secondItem="08z-6Z-DEZ" secondAttribute="leading" id="Teu-kM-ElX"/>
                             <constraint firstItem="KvU-wJ-GRM" firstAttribute="trailing" secondItem="08z-6Z-DEZ" secondAttribute="trailing" id="iSp-xs-rcv"/>
                             <constraint firstItem="KvU-wJ-GRM" firstAttribute="leading" secondItem="08z-6Z-DEZ" secondAttribute="leading" id="klQ-1Y-2bw"/>
@@ -288,6 +288,6 @@
         <image name="play" width="27" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fpJ-aq-8RH"/>
+        <segue reference="Fbp-0P-Hlk"/>
     </inferredMetricsTieBreakers>
 </document>
