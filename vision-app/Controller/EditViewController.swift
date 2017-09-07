@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 
-class EditViewController: UIViewController{
+class EditViewController: UIViewController, UITabBarDelegate {
     
-    
+    @IBOutlet var textView: UITextView!
+    let text = "TEXT"
     override func viewDidLoad() {
+       
         print("hi")
+        print(text)
     }
     
+
 }

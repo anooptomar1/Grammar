@@ -133,7 +133,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @objc private func laguageTouched(){
         print("language")
        // self.pause()
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "languageVC")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationLanguage")
         self.present(vc!, animated: true, completion: self.pause)
     }
     @objc private func editTouched(){
@@ -166,18 +166,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         self.btnPlay.isSelected = false
     }
     
-    @IBAction func onLanguage(_ sender: Any) {
-        if (sender as AnyObject).isSelected{
-        self.pause()
-        print("language")
-        }
-        print("language2")
-    }
-    
-    @IBAction func onEdit(_ sender: Any) {
-        pause()
-    }
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
