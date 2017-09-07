@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Foundation
 import AVKit
 import CoreML
 import Vision
 import DocumentsOCR
 import TesseractOCR
 
+
+var textInEdit = String()
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate, G8TesseractDelegate {
     
@@ -75,6 +78,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         didSet {
             //self.lblTitle.isHidden = true
             self.txfDetection.text = self.currentDetectedText
+            textInEdit = currentDetectedText!
         }
     }
     
@@ -87,14 +91,14 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             return ["gray", "b/w"] //, "original"]
         }
     }
-    var test = 1
+    
+
     let languageArray = ["English", "German", "French", "Danish"]
     var selectedLanguage = "eng"
     //internal var recognitionState = RecognitionTypes.init(rawValue: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        print(test)
         //import language item
         let languageItem = UIBarButtonItem(title: "Language", style: .plain, target: self, action: #selector(laguageTouched))
         navigationItem.leftBarButtonItem = languageItem
@@ -129,7 +133,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         startTextDetection()
     }
     
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "EditSegue"{
+//            let viewController2 = segue.destination as! EditViewController(
+//            test = 99
+//            viewController2.test = 878788
+//            print("test\(test)")
+//        }
+//        print("executeB")
+//    }
+
     @objc private func laguageTouched(){
         print("language")
        // self.pause()
@@ -138,11 +151,14 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     @objc private func editTouched(){
         print("edit")
-        // self.pause()
+
+       // performSegue(withIdentifier: "EditSegue", sender: self)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "editVC")
         let nav = UINavigationController(rootViewController: vc!)
         self.present(nav, animated: true, completion: self.pause)
+        
     }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         self.previewLayer?.frame = self.vwCamera.bounds //on load, fix bounds
@@ -151,20 +167,25 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBAction func onPlay(_ sender: UIButton) {
         if sender.isSelected {
             self.pause()
-        }
-        else {
+           
+        }else {
             self.play()
+
         }
     }
     
     internal func play() {
         self.startSession()
         self.btnPlay.isSelected = true
+        btnPlay.setImage(UIImage(named: "pause"), for: .normal)
+        btnPlay.backgroundColor = UIColor.orange
     }
     
     internal func pause() {
         self.stopSession()
         self.btnPlay.isSelected = false
+        btnPlay.setImage(UIImage(named: "play"), for: .normal)
+        btnPlay.backgroundColor = UIColor.white
     }
     
    

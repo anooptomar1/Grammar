@@ -196,6 +196,7 @@ extension ViewController {
             self.shouldAnalyzeImage = true
         }
     }
+    
     // boxes
     func highlightWord(box: VNTextObservation) {
         guard let _ = box.characterBoxes else {

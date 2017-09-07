@@ -53,9 +53,9 @@
                                         <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EO-Td-ywl">
-                                                <rect key="frame" x="0.0" y="-0.5" width="375" height="334"/>
+                                                <rect key="frame" x="0.0" y="-1" width="375" height="362"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iUs-KM-7wY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -73,7 +73,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </visualEffectView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ie-3w-nEg" userLabel="Txf Detection">
-                                                <rect key="frame" x="0.0" y="1.5" width="375" height="329"/>
+                                                <rect key="frame" x="8" y="54" width="359" height="280"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -84,11 +84,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-TV-p65" userLabel="Btn Play">
-                                                <rect key="frame" x="0.0" y="280" width="375" height="72"/>
+                                                <rect key="frame" x="0.0" y="-1" width="375" height="47"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="72" id="Vuz-uz-vlG"/>
+                                                    <constraint firstAttribute="height" constant="47" id="cvg-JO-CQF"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <size key="titleShadowOffset" width="0.0" height="-10"/>
@@ -106,20 +106,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" id="BtR-8h-rXp"/>
-                                            <constraint firstAttribute="bottom" secondItem="6EO-Td-ywl" secondAttribute="bottom" constant="-0.5" id="PdV-ye-1K3"/>
-                                            <constraint firstAttribute="bottom" secondItem="6Ie-3w-nEg" secondAttribute="bottom" constant="3" id="QeU-Xh-Qfl"/>
+                                            <constraint firstItem="UEy-TV-p65" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="8il-kW-qjs"/>
+                                            <constraint firstItem="UEy-TV-p65" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="-1" id="94Q-6v-A0Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" constant="8" id="BtR-8h-rXp"/>
+                                            <constraint firstAttribute="bottom" secondItem="6EO-Td-ywl" secondAttribute="bottom" constant="-27.5" id="PdV-ye-1K3"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Ie-3w-nEg" secondAttribute="bottom" constant="-0.5" id="QeU-Xh-Qfl"/>
                                             <constraint firstAttribute="trailing" secondItem="6EO-Td-ywl" secondAttribute="trailing" id="RZM-Eg-uB6"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="1.5" id="ccF-6e-cxN"/>
-                                            <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" id="fXu-O7-Kvw"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="1.5" id="gYn-ZZ-Ciq"/>
-                                            <constraint firstAttribute="trailing" secondItem="UEy-TV-p65" secondAttribute="trailing" id="jNw-rr-qH6"/>
-                                            <constraint firstAttribute="bottom" secondItem="UEy-TV-p65" secondAttribute="bottom" constant="-18.5" id="jas-sV-Mn7"/>
+                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="54" id="ccF-6e-cxN"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" constant="8" id="fXu-O7-Kvw"/>
+                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="54" id="gYn-ZZ-Ciq"/>
                                             <constraint firstItem="6EO-Td-ywl" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="kwB-48-A9b"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="oy9-Cc-zC8"/>
-                                            <constraint firstItem="6EO-Td-ywl" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" id="qT0-nZ-Mie"/>
-                                            <constraint firstItem="UEy-TV-p65" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="qy8-Y9-LDb"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="tr6-6E-MEp"/>
+                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" constant="8" id="oy9-Cc-zC8"/>
+                                            <constraint firstItem="6EO-Td-ywl" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="-1" id="qT0-nZ-Mie"/>
+                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" constant="8" id="tr6-6E-MEp"/>
+                                            <constraint firstAttribute="trailing" secondItem="UEy-TV-p65" secondAttribute="trailing" id="zq8-aC-WDt"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -153,7 +153,11 @@
                                 <segue destination="2Mr-YW-QpP" kind="show" id="vZs-UA-c9S"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" springLoaded="YES" style="plain" id="lT4-5n-fv7"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" springLoaded="YES" style="plain" id="lT4-5n-fv7">
+                            <connections>
+                                <segue destination="wIU-KT-1Gr" kind="show" identifier="EditSegue" id="5qy-fN-Jzw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnPlay" destination="UEy-TV-p65" id="4t6-RF-q34"/>
@@ -215,7 +219,7 @@
         <!--editVC-->
         <scene sceneID="JM3-Rj-Dr4">
             <objects>
-                <viewController storyboardIdentifier="editVC" title="editVC" id="wIU-KT-1Gr" customClass="EditViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editVC" title="editVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wIU-KT-1Gr" customClass="EditViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="EKC-iW-DvS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,27 +231,35 @@
                                     <constraint firstAttribute="height" constant="49" id="bQm-EM-5hd"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="Adjective" id="u6b-HA-ojO">
+                                    <tabBarItem tag="1" title="Adjective" id="u6b-HA-ojO">
                                         <color key="badgeColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tabBarItem>
-                                    <tabBarItem title="Verb" id="JbJ-mv-hYv"/>
-                                    <tabBarItem title="Noun" id="md7-d7-IoL"/>
-                                    <tabBarItem systemItem="more" id="5K7-0u-ECm"/>
+                                    <tabBarItem tag="2" title="Verb" id="JbJ-mv-hYv"/>
+                                    <tabBarItem tag="3" title="Noun" id="md7-d7-IoL"/>
+                                    <tabBarItem tag="4" title="Read Loud" springLoaded="YES" id="5K7-0u-ECm">
+                                        <inset key="imageInsets" minX="45" minY="130" maxX="45" maxY="128"/>
+                                    </tabBarItem>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="wIU-KT-1Gr" id="tHP-2U-zbq"/>
+                                </connections>
                             </tabBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inF-1T-Fed">
-                                <rect key="frame" x="0.0" y="158" width="375" height="460"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inF-1T-Fed">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wIU-KT-1Gr" id="GbP-Qv-gf4"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="inF-1T-Fed" firstAttribute="top" secondItem="08z-6Z-DEZ" secondAttribute="top" constant="94" id="1Df-v7-2QQ"/>
-                            <constraint firstItem="inF-1T-Fed" firstAttribute="trailing" secondItem="08z-6Z-DEZ" secondAttribute="trailing" id="3ta-gf-fOm"/>
+                            <constraint firstItem="inF-1T-Fed" firstAttribute="top" secondItem="08z-6Z-DEZ" secondAttribute="top" id="1Df-v7-2QQ"/>
+                            <constraint firstItem="inF-1T-Fed" firstAttribute="trailing" secondItem="08z-6Z-DEZ" secondAttribute="trailing" constant="-16" id="3ta-gf-fOm"/>
                             <constraint firstItem="inF-1T-Fed" firstAttribute="bottom" secondItem="KvU-wJ-GRM" secondAttribute="top" id="Srz-0K-puy"/>
-                            <constraint firstItem="inF-1T-Fed" firstAttribute="leading" secondItem="08z-6Z-DEZ" secondAttribute="leading" id="Teu-kM-ElX"/>
+                            <constraint firstItem="inF-1T-Fed" firstAttribute="leading" secondItem="08z-6Z-DEZ" secondAttribute="leading" constant="16" id="Teu-kM-ElX"/>
                             <constraint firstItem="KvU-wJ-GRM" firstAttribute="trailing" secondItem="08z-6Z-DEZ" secondAttribute="trailing" id="iSp-xs-rcv"/>
                             <constraint firstItem="KvU-wJ-GRM" firstAttribute="leading" secondItem="08z-6Z-DEZ" secondAttribute="leading" id="klQ-1Y-2bw"/>
                             <constraint firstItem="KvU-wJ-GRM" firstAttribute="bottom" secondItem="08z-6Z-DEZ" secondAttribute="bottom" id="uph-1j-pnw"/>
@@ -267,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWL-fD-d0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="121"/>
+            <point key="canvasLocation" x="2636" y="120.98950524737631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bV4-XL-zef">
@@ -325,7 +337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18d-e2-G0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="121"/>
+            <point key="canvasLocation" x="1818" y="-267"/>
         </scene>
     </scenes>
     <resources>
@@ -333,5 +345,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fpJ-aq-8RH"/>
+        <segue reference="5qy-fN-Jzw"/>
     </inferredMetricsTieBreakers>
 </document>
