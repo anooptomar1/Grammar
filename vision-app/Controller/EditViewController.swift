@@ -53,6 +53,7 @@ class EditViewController: UIViewController, UITabBarDelegate {
             let string = textView.text
             let attributedString = string?.highlight(adjArray, this: .red)
             textView.attributedText = attributedString
+           textView.font = UIFont(name: "Avenir Next", size: 18)
         }
     }
     func lexicalVerb(){
@@ -68,7 +69,7 @@ class EditViewController: UIViewController, UITabBarDelegate {
             }
             let string = textView.text
             let attributedString = string?.highlight(verbArray, this: .blue)
-            textView.attributedText = attributedString
+            textView.font = UIFont(name: "Avenir Next", size: 18)
         }
     }
     func lexicalNoun(){
@@ -83,9 +84,10 @@ class EditViewController: UIViewController, UITabBarDelegate {
                 nounArray.append(lexical)
             }
             let string = textView.text
-            let attributedString = string?.highlight(nounArray, this: .brown)
+            let attributedString = string?.highlight(nounArray, this: .purple)
             textView.attributedText = attributedString
-            textView.adjustsFontForContentSizeCategory = true
+            textView.font = UIFont(name: "Avenir Next", size: 18)
+
         }
     }
     
