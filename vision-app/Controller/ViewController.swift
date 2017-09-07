@@ -149,7 +149,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationLanguage")
         self.present(vc!, animated: true, completion: self.pause)
     }
-    @objc private func editTouched(){
+    @objc private func editTouched(){ 
         print("edit")
 
        // performSegue(withIdentifier: "EditSegue", sender: self)

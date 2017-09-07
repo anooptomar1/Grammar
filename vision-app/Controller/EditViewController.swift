@@ -44,7 +44,6 @@ class EditViewController: UIViewController, UITabBarDelegate {
         tagger.string = textView.text
         let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
         let range = NSRange(location: 0, length: textView.text.characters.count)
-        var tags = NSLinguisticTag.adjective
         tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: omitOptions) { ( tags, range, stop) in
             let lexical = (textView.text as NSString).substring(with: range)
             
@@ -61,7 +60,6 @@ class EditViewController: UIViewController, UITabBarDelegate {
         tagger.string = textView.text
         let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
         let range = NSRange(location: 0, length: textView.text.characters.count)
-        var tags = NSLinguisticTag.adjective
         tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: omitOptions) { ( tags, range, stop) in
             let lexical = (textView.text as NSString).substring(with: range)
             
@@ -78,7 +76,6 @@ class EditViewController: UIViewController, UITabBarDelegate {
         tagger.string = textView.text
         let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
         let range = NSRange(location: 0, length: textView.text.characters.count)
-        var tags = NSLinguisticTag.adjective
         tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: omitOptions) { ( tags, range, stop) in
             let lexical = (textView.text as NSString).substring(with: range)
             
