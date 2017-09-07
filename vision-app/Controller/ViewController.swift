@@ -140,7 +140,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         print("edit")
         // self.pause()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "editVC")
-        self.present(vc!, animated: true, completion: self.pause)
+        let nav = UINavigationController(rootViewController: vc!)
+        self.present(nav, animated: true, completion: self.pause)
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -171,19 +172,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //MARK: UIPicker
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return "1"
-//    }
     
 }
 
