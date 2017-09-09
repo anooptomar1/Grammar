@@ -269,6 +269,7 @@
                     <navigationItem key="navigationItem" id="gdw-FZ-oJl">
                         <barButtonItem key="leftBarButtonItem" title="Scanner" id="Efw-pI-6m1">
                             <connections>
+                                <action selector="backToScannerAction:" destination="wIU-KT-1Gr" id="Zaq-fr-kDM"/>
                                 <segue destination="sO9-UO-60F" kind="show" id="Hy3-R1-ets"/>
                             </connections>
                         </barButtonItem>

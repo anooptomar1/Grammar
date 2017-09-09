@@ -18,11 +18,12 @@ class EditViewController: UIViewController, UITabBarDelegate {
     var adjArray = [String]()
     var verbArray = [String]()
     var nounArray = [String]()
+    var speechSynthesizer = AVSpeechSynthesizer()
 
     override func viewDidLoad() {
        print("text in edit is\(textInEdit)")
+        speechSynthesizer.delegate = self
         textView.text = textInEdit
-        
         let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
         tagger.string = textView.text
         let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
@@ -63,11 +64,27 @@ class EditViewController: UIViewController, UITabBarDelegate {
             textView.attributedText = attributedString
             textView.font = UIFont(name: "Avenir Next", size: 19)
         }else if item.tag == 4{
-            
+            synthesizeSpeech(fromString: textView.text)
+         
         }
         
     }
-  
+    
+    func synthesizeSpeech(fromString string: String){
+        let speechUtterance = AVSpeechUtterance(string: string)
+        speechUtterance.postUtteranceDelay = 0.0
+        speechSynthesizer.speak(speechUtterance)
+        
+    }
+    @IBAction func backToScannerAction(_ sender: Any) {
+        print("back")
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        print("gone")
+        speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+    }
+    
 }
 extension String {
     func getRanges(of string: String) -> [NSRange] {
@@ -96,5 +113,10 @@ extension String {
             }
         }
         return attributedString
+    }
+}
+extension EditViewController: AVSpeechSynthesizerDelegate{
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        
     }
 }
