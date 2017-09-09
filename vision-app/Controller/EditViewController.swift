@@ -15,31 +15,14 @@ class EditViewController: UIViewController, UITabBarDelegate {
     
     @IBOutlet var textView: UITextView!
     let text = "TEXT"
-
+    var adjArray = [String]()
+    var verbArray = [String]()
+    var nounArray = [String]()
 
     override func viewDidLoad() {
        print("text in edit is\(textInEdit)")
         textView.text = textInEdit
-    }
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item.tag == 1{
-            print("on adj")
-            lexicalAdj()
-        }else if item.tag == 2{
-            print("on verb")
-            lexicalVerb()
-        }else if item.tag == 3{
-            print("on noun")
-            lexicalNoun()
-        }
         
-    }
-    var adjArray = [String]()
-    var verbArray = [String]()
-    var nounArray = [String]()
-    typealias TaggedToken = (String, String?)
-    func lexicalAdj(){
         let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
         tagger.string = textView.text
         let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
@@ -50,50 +33,41 @@ class EditViewController: UIViewController, UITabBarDelegate {
             if tags == NSLinguisticTag.adjective{
                 adjArray.append(lexical)
             }
-            let string = textView.text
-            let attributedString = string?.highlight(adjArray, this: .red)
-            textView.attributedText = attributedString
-           textView.font = UIFont(name: "Avenir Next", size: 18)
-        }
-    }
-    func lexicalVerb(){
-        let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
-        tagger.string = textView.text
-        let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
-        let range = NSRange(location: 0, length: textView.text.characters.count)
-        tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: omitOptions) { ( tags, range, stop) in
-            let lexical = (textView.text as NSString).substring(with: range)
-            
             if tags == NSLinguisticTag.verb{
                 verbArray.append(lexical)
             }
-            let string = textView.text
-            let attributedString = string?.highlight(verbArray, this: .blue)
-            textView.font = UIFont(name: "Avenir Next", size: 18)
-        }
-    }
-    func lexicalNoun(){
-        let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
-        tagger.string = textView.text
-        let omitOptions: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace]
-        let range = NSRange(location: 0, length: textView.text.characters.count)
-        tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: omitOptions) { ( tags, range, stop) in
-            let lexical = (textView.text as NSString).substring(with: range)
-            
             if tags == NSLinguisticTag.noun{
                 nounArray.append(lexical)
             }
-            let string = textView.text
-            let attributedString = string?.highlight(nounArray, this: .purple)
-            textView.attributedText = attributedString
-            textView.font = UIFont(name: "Avenir Next", size: 18)
-
+           
         }
     }
     
-    
-    
-    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag == 1{
+            print("on adj")
+            let string = textView.text
+            let attributedString = string?.highlight(adjArray, this: .red)
+            textView.attributedText = attributedString
+            textView.font = UIFont(name: "Avenir Next", size: 19)
+        }else if item.tag == 2{
+            print("on verb")
+            let string = textView.text
+            let attributedString = string?.highlight(verbArray, this: .blue)
+            textView.attributedText = attributedString
+            textView.font = UIFont(name: "Avenir Next", size: 19)
+        }else if item.tag == 3{
+            print("on noun")
+            let string = textView.text
+            let attributedString = string?.highlight(nounArray, this: .green)
+            textView.attributedText = attributedString
+            textView.font = UIFont(name: "Avenir Next", size: 19)
+        }else if item.tag == 4{
+            
+        }
+        
+    }
+  
 }
 extension String {
     func getRanges(of string: String) -> [NSRange] {
