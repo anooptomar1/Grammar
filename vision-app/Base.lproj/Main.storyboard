@@ -37,16 +37,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLB-pC-eY3" userLabel="Vw Visible Area">
-                                                <rect key="frame" x="4" y="65" width="367" height="265"/>
+                                                <rect key="frame" x="0.0" y="47" width="375" height="283"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="FLB-pC-eY3" secondAttribute="trailing" constant="4" id="1c6-x1-F0B"/>
+                                            <constraint firstAttribute="trailing" secondItem="FLB-pC-eY3" secondAttribute="trailing" id="1c6-x1-F0B"/>
                                             <constraint firstAttribute="bottom" secondItem="FLB-pC-eY3" secondAttribute="bottom" constant="4" id="BJz-W7-el7"/>
-                                            <constraint firstItem="FLB-pC-eY3" firstAttribute="top" secondItem="yPj-1u-HZw" secondAttribute="top" constant="65" id="F34-BP-f6P"/>
-                                            <constraint firstItem="FLB-pC-eY3" firstAttribute="leading" secondItem="yPj-1u-HZw" secondAttribute="leading" constant="4" id="J5i-iu-St6"/>
+                                            <constraint firstItem="FLB-pC-eY3" firstAttribute="top" secondItem="yPj-1u-HZw" secondAttribute="top" constant="47" id="F34-BP-f6P"/>
+                                            <constraint firstItem="FLB-pC-eY3" firstAttribute="leading" secondItem="yPj-1u-HZw" secondAttribute="leading" id="J5i-iu-St6"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ms2-L5-rzM" userLabel="Vw Detection">
@@ -148,11 +148,7 @@
                         <viewLayoutGuide key="safeArea" id="Xq4-eM-Tlz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scanner" id="dkg-6p-L0I">
-                        <barButtonItem key="leftBarButtonItem" title="Language" springLoaded="YES" style="plain" id="DkN-np-muP">
-                            <connections>
-                                <segue destination="2Mr-YW-QpP" kind="show" id="vZs-UA-c9S"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="5Rq-cJ-z5r"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" springLoaded="YES" style="plain" id="lT4-5n-fv7">
                             <connections>
                                 <segue destination="wIU-KT-1Gr" kind="show" identifier="EditSegue" id="5qy-fN-Jzw"/>
@@ -173,48 +169,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="965.60000000000002" y="137.18140929535232"/>
-        </scene>
-        <!--Language-->
-        <scene sceneID="2wt-Xo-s1a">
-            <objects>
-                <viewController storyboardIdentifier="languageVC" id="ngE-F9-hA1" customClass="LanguageViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="t5N-8d-Hm6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOM-Ay-qQS">
-                                <rect key="frame" x="0.0" y="45" width="375" height="489"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="489" id="76w-ts-KCL"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="ngE-F9-hA1" id="FdT-1d-RU3"/>
-                                    <outlet property="delegate" destination="ngE-F9-hA1" id="y9D-55-DYj"/>
-                                </connections>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Rmk-Kg-dLC" firstAttribute="bottom" secondItem="pOM-Ay-qQS" secondAttribute="bottom" constant="89" id="8wK-vm-eZJ"/>
-                            <constraint firstItem="pOM-Ay-qQS" firstAttribute="leading" secondItem="Rmk-Kg-dLC" secondAttribute="leading" id="EJm-EB-bmi"/>
-                            <constraint firstItem="pOM-Ay-qQS" firstAttribute="trailing" secondItem="Rmk-Kg-dLC" secondAttribute="trailing" id="VcB-He-sa5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Rmk-Kg-dLC"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Language" id="fJ9-ux-mFX">
-                        <barButtonItem key="leftBarButtonItem" title="Do" systemItem="done" id="1VZ-85-zli">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="languageSegue" id="42I-rB-ZJJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="pickerView" destination="pOM-Ay-qQS" id="d0A-I0-kIc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2yu-fs-qDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1328.8" y="982.75862068965523"/>
         </scene>
         <!--editVC-->
         <scene sceneID="JM3-Rj-Dr4">
@@ -301,28 +255,6 @@
             <point key="canvasLocation" x="145" y="137"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="sMy-hV-4Rx">
-            <objects>
-                <navigationController storyboardIdentifier="NavigationLanguage" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="2Mr-YW-QpP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="adb-TE-K94">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3xR-y4-rcy">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="ngE-F9-hA1" kind="relationship" relationship="rootViewController" id="JvI-8h-g5s"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="om5-CF-P7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="614" y="983"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="6AR-Qc-yaf">
             <objects>
                 <navigationController storyboardIdentifier="NavEdit" automaticallyAdjustsScrollViewInsets="NO" id="ihM-B7-PPp" sceneMemberID="viewController">
@@ -345,7 +277,6 @@
         <image name="pause" width="25" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fpJ-aq-8RH"/>
         <segue reference="5qy-fN-Jzw"/>
     </inferredMetricsTieBreakers>
 </document>

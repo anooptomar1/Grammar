@@ -21,6 +21,8 @@ class EditViewController: UIViewController, UITabBarDelegate {
     var speechSynthesizer = AVSpeechSynthesizer()
 
     override func viewDidLoad() {
+       
+        
        print("text in edit is\(textInEdit)")
         speechSynthesizer.delegate = self
         textView.text = textInEdit
@@ -73,6 +75,10 @@ class EditViewController: UIViewController, UITabBarDelegate {
     func synthesizeSpeech(fromString string: String){
         let speechUtterance = AVSpeechUtterance(string: string)
         speechUtterance.postUtteranceDelay = 0.0
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        speechUtterance.preUtteranceDelay = 1.0
+        speechUtterance.postUtteranceDelay = 1.0
+        speechUtterance.rate = 0.5
         speechSynthesizer.speak(speechUtterance)
         
     }

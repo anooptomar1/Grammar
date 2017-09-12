@@ -13,21 +13,17 @@ class LanguageViewController: UIViewController, UIPickerViewDataSource, UIPicker
    
     let languageArray = ["English", "German", "French", "Danish"]
     var languageChoice = "English"
-    var selectedLanguage = "English"
+
     var test = 1
 
     @IBOutlet var pickerView: UIPickerView!
     
     override func viewDidLoad() {
         print(test)
+
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "languageSegue"{
-            let viewController = segue.destination as! ViewController
-            viewController.selectedLanguage = languageChoice
-        }
-    }
+   
     
     func createLanguagePicker(){
         let languagePicker = UIPickerView()
@@ -45,6 +41,7 @@ class LanguageViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         languageChoice = languageArray[row]
+        selectedLanguage = languageArray[row]
     }
     
 

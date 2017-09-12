@@ -16,7 +16,7 @@ import TesseractOCR
 
 
 var textInEdit = String()
-
+var selectedLanguage = "eng"
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate, G8TesseractDelegate {
     
     
@@ -67,7 +67,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     internal var session = AVCaptureSession()
     internal var requests = [VNRequest]()
     lazy internal var tesseract: G8Tesseract = {
-        let _tesseract = G8Tesseract(language: selectedLanguage)
+        let _tesseract = G8Tesseract(language: "eng")
         _tesseract?.delegate = self
         //_tesseract?.charWhitelist
         //_tesseract?.charBlacklist
@@ -93,8 +93,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
 
-    let languageArray = ["English", "German", "French", "Danish"]
-    var selectedLanguage = "eng"
+
+    
     //internal var recognitionState = RecognitionTypes.init(rawValue: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,24 +106,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let editItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTouched))
        navigationItem.rightBarButtonItem = editItem
         
+       
         
-        if selectedLanguage == "English"{
-            selectedLanguage = "eng"
-        }else if selectedLanguage == "French"{
-            selectedLanguage = "fra"
-        }
-        else if selectedLanguage == "German"{
-            selectedLanguage = "deu"
-        }
-        else if selectedLanguage == "Danish"{
-            selectedLanguage = "dan"
-        }
-        print(selectedLanguage)
-        
-        print("tess language is \(tesseract.language)")
-        
-        txfDetection.text = "hello"
 
+     
         vwVisibleArea.backgroundColor = UIColor.clear
         vwSnapshot.backgroundColor = UIColor.clear
         vwCamera.backgroundColor = UIColor.clear
@@ -132,6 +118,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         play()
         startTextDetection()
     }
+   
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "EditSegue"{
@@ -147,7 +134,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         print("language")
        // self.pause()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationLanguage")
-        self.present(vc!, animated: true, completion: self.pause)
+        self.present(vc!, animated: true, completion: nil)
     }
     @objc private func editTouched(){ 
         print("edit")
@@ -178,14 +165,14 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         self.startSession()
         self.btnPlay.isSelected = true
         btnPlay.setImage(UIImage(named: "pause"), for: .normal)
-        btnPlay.backgroundColor = UIColor.orange
+        btnPlay.backgroundColor = UIColor.purple
     }
     
     internal func pause() {
         self.stopSession()
         self.btnPlay.isSelected = false
         btnPlay.setImage(UIImage(named: "play"), for: .normal)
-        btnPlay.backgroundColor = UIColor.white
+        btnPlay.backgroundColor = UIColor.blue
     }
     
    
