@@ -217,7 +217,7 @@ extension ViewController {
             let outlineb = CALayer()
             outlineb.frame = layerFrame
             outlineb.borderWidth = 2.0
-            outlineb.borderColor = UIColor.red.cgColor
+            outlineb.borderColor = UIColor.purple.cgColor
             
             self.vwCamera.layer.addSublayer(outlineb)
             

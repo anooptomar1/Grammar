@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sO9-UO-60F">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,27 +19,31 @@
             <objects>
                 <viewController storyboardIdentifier="VC" id="BYZ-38-t0r" customClass="ViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nd5-qH-yQc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVn-0J-IBa" userLabel="Vw Snapshot">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwl-NF-CPs" userLabel="Vw Camera">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rif-2F-fY3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-1u-HZw" userLabel="Vw Camera Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="834" height="556"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLB-pC-eY3" userLabel="Vw Visible Area">
-                                                <rect key="frame" x="0.0" y="47" width="375" height="283"/>
+                                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FLB-pC-eY3" userLabel="Vw Visible Area">
+                                                <rect key="frame" x="0.0" y="47" width="834" height="505"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hX-PP-Qbq">
+                                                <rect key="frame" x="0.0" y="47" width="834" height="509"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -47,17 +51,43 @@
                                             <constraint firstAttribute="bottom" secondItem="FLB-pC-eY3" secondAttribute="bottom" constant="4" id="BJz-W7-el7"/>
                                             <constraint firstItem="FLB-pC-eY3" firstAttribute="top" secondItem="yPj-1u-HZw" secondAttribute="top" constant="47" id="F34-BP-f6P"/>
                                             <constraint firstItem="FLB-pC-eY3" firstAttribute="leading" secondItem="yPj-1u-HZw" secondAttribute="leading" id="J5i-iu-St6"/>
+                                            <constraint firstItem="8hX-PP-Qbq" firstAttribute="top" secondItem="FLB-pC-eY3" secondAttribute="top" id="St0-ss-p4J"/>
+                                            <constraint firstAttribute="bottom" secondItem="8hX-PP-Qbq" secondAttribute="bottom" id="Ya0-h5-NDR"/>
+                                            <constraint firstItem="8hX-PP-Qbq" firstAttribute="leading" secondItem="yPj-1u-HZw" secondAttribute="leading" id="a6q-AV-Nu2"/>
+                                            <constraint firstItem="8hX-PP-Qbq" firstAttribute="centerX" secondItem="FLB-pC-eY3" secondAttribute="centerX" id="xoi-Ug-FfQ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ms2-L5-rzM" userLabel="Vw Detection">
-                                        <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                        <rect key="frame" x="0.0" y="556" width="834" height="556"/>
                                         <subviews>
                                             <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EO-Td-ywl">
-                                                <rect key="frame" x="0.0" y="-1" width="375" height="362"/>
+                                                <rect key="frame" x="0.0" y="-1" width="834" height="585"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iUs-KM-7wY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="834" height="585"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ie-3w-nEg" userLabel="Txf Detection">
+                                                            <rect key="frame" x="28" y="55" width="779" height="503"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="17"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </textView>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" constant="27" id="Ayy-kQ-o0p"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6Ie-3w-nEg" secondAttribute="bottom" constant="27" id="FNU-sw-xOK"/>
+                                                        <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="iUs-KM-7wY" secondAttribute="leading" constant="28" id="Fwc-v2-jK9"/>
+                                                        <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="iUs-KM-7wY" secondAttribute="top" constant="55" id="fhG-qB-c9s"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" constant="27" id="izl-b6-6Ol"/>
+                                                        <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="iUs-KM-7wY" secondAttribute="leading" constant="28" id="m97-pA-mnL"/>
+                                                        <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="iUs-KM-7wY" secondAttribute="top" constant="55" id="r3v-4a-JeH"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="17"/>
@@ -72,19 +102,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </visualEffectView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ie-3w-nEg" userLabel="Txf Detection">
-                                                <rect key="frame" x="8" y="54" width="359" height="280"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="17"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textView>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-TV-p65" userLabel="Btn Play">
-                                                <rect key="frame" x="0.0" y="-1" width="375" height="47"/>
+                                                <rect key="frame" x="0.0" y="-1" width="834" height="47"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                                 <constraints>
@@ -96,7 +115,7 @@
                                                 <state key="selected" image="pause"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="17"/>
+                                                        <integer key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -108,17 +127,10 @@
                                         <constraints>
                                             <constraint firstItem="UEy-TV-p65" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="8il-kW-qjs"/>
                                             <constraint firstItem="UEy-TV-p65" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="-1" id="94Q-6v-A0Y"/>
-                                            <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" constant="8" id="BtR-8h-rXp"/>
                                             <constraint firstAttribute="bottom" secondItem="6EO-Td-ywl" secondAttribute="bottom" constant="-27.5" id="PdV-ye-1K3"/>
-                                            <constraint firstAttribute="bottom" secondItem="6Ie-3w-nEg" secondAttribute="bottom" constant="-0.5" id="QeU-Xh-Qfl"/>
                                             <constraint firstAttribute="trailing" secondItem="6EO-Td-ywl" secondAttribute="trailing" id="RZM-Eg-uB6"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="54" id="ccF-6e-cxN"/>
-                                            <constraint firstAttribute="trailing" secondItem="6Ie-3w-nEg" secondAttribute="trailing" constant="8" id="fXu-O7-Kvw"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="54" id="gYn-ZZ-Ciq"/>
                                             <constraint firstItem="6EO-Td-ywl" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" id="kwB-48-A9b"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" constant="8" id="oy9-Cc-zC8"/>
                                             <constraint firstItem="6EO-Td-ywl" firstAttribute="top" secondItem="ms2-L5-rzM" secondAttribute="top" constant="-1" id="qT0-nZ-Mie"/>
-                                            <constraint firstItem="6Ie-3w-nEg" firstAttribute="leading" secondItem="ms2-L5-rzM" secondAttribute="leading" constant="8" id="tr6-6E-MEp"/>
                                             <constraint firstAttribute="trailing" secondItem="UEy-TV-p65" secondAttribute="trailing" id="zq8-aC-WDt"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -148,7 +160,11 @@
                         <viewLayoutGuide key="safeArea" id="Xq4-eM-Tlz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scanner" id="dkg-6p-L0I">
-                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="5Rq-cJ-z5r"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="5Rq-cJ-z5r">
+                            <connections>
+                                <action selector="cameraTapped:" destination="BYZ-38-t0r" id="XVU-AH-wtt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" springLoaded="YES" style="plain" id="lT4-5n-fv7">
                             <connections>
                                 <segue destination="wIU-KT-1Gr" kind="show" identifier="EditSegue" id="5qy-fN-Jzw"/>
@@ -156,6 +172,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="Camera_image_View" destination="8hX-PP-Qbq" id="HqS-pk-IfL"/>
                         <outlet property="btnPlay" destination="UEy-TV-p65" id="4t6-RF-q34"/>
                         <outlet property="txfDetection" destination="6Ie-3w-nEg" id="4Ag-hk-gCB"/>
                         <outlet property="visuals" destination="6EO-Td-ywl" id="nTu-Ax-X06"/>
@@ -168,18 +185,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965.60000000000002" y="137.18140929535232"/>
+            <point key="canvasLocation" x="965.46762589928062" y="137.05035971223023"/>
         </scene>
         <!--editVC-->
         <scene sceneID="JM3-Rj-Dr4">
             <objects>
                 <viewController storyboardIdentifier="editVC" title="editVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wIU-KT-1Gr" customClass="EditViewController" customModule="vision_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="EKC-iW-DvS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvU-wJ-GRM">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <rect key="frame" x="0.0" y="1063" width="834" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="bQm-EM-5hd"/>
@@ -199,7 +216,7 @@
                                 </connections>
                             </tabBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="inF-1T-Fed">
-                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <rect key="frame" x="16" y="64" width="802" height="999"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
